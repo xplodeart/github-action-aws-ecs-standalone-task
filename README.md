@@ -29,12 +29,15 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: github-action-aws-ecs-standalone-task @v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run an AWS ECS Standalone Task
+        uses: xplodeart/github-action-aws-ecs-standalone-task@v1
         with:
+          aws_region: "us-east-2"
           # ecs:RunTask and ecs:DescribeTasks permissions to the IAM User
           # optional: logs:GetLogEvents permission for the log-group and log-stream
-          aws_region: "us-east-2"
           aws_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           ecs_cluster: "MyClusterName"
