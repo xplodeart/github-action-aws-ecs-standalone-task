@@ -1,0 +1,55 @@
+name: AWS ECS Standalone Task
+description: Run a Standalone task on an ECS cluster, wait for it's completion and check it's CloudWatch Logs for errors
+
+inputs:
+  # AWS Credentials
+  aws_region:
+    description: "AWS Region"
+    required: true
+  aws_key:
+    description: "AWS Key ID"
+    required: true
+  aws_secret:
+    description: "AWS Secret Key"
+    required: true
+
+  # ECS Resources
+  ecs_cluster:
+    description: "ECS Cluster Name"
+    required: true
+  ecs_task_def:
+    description: "ECS Task Definition Name"
+    required: true
+  security_groups:
+    description: "Security Groups, comma separated"
+    required: true
+  subnets:
+    description: "Subnets, comma separated"
+    required: true
+
+  # Wait definitions
+  check_interval:
+    description: "Check interval in milliseconds to check for completion"
+    required: true
+    default: "6000"
+  iterations:
+    description: "Number of iterations to check for completion"
+    required: true
+    default: "20"
+
+  # CloudWatch Log Resources
+  log_read_enable:
+    description: "Read the Cloud Log events for the task"
+    default: false
+  log_group_name:
+    description: "Log Group name where the task's container sends it's logs"
+  log_stream_prefix:
+    description: "Log Stream prefix where we add the Task ID"
+
+outputs:
+  status:
+    description: "The task status"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
