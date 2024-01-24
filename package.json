@@ -1,6 +1,6 @@
 {
   "name": "github-action-aws-ecs-standalone-task",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run a Standalone task on an ECS cluster, wait for it's completion and check it's CloudWatch Logs for errors",
   "license": "MIT",
   "author": "xpld - Stojchevski (https://github.com/xplodeart/)",
