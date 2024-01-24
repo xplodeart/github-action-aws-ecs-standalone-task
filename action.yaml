@@ -1,6 +1,10 @@
 name: AWS ECS Standalone Task
 description: Run a Standalone task on an ECS cluster, wait for it's completion and check it's CloudWatch Logs for errors
 
+branding:
+  icon: "cloud"
+  color: "yellow"
+
 inputs:
   # AWS Credentials
   aws_region:
