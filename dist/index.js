@@ -50181,7 +50181,7 @@ async function main() {
       throw new Error("Task is not dispatched");
     }
     core2.info("Task id: " + taskId);
-    await this.waitForTaskComplete(taskId, inputs.checkInterval, inputs.iterations);
+    await ecs.waitForTaskComplete(taskId, inputs.checkInterval, inputs.iterations);
     if (inputs.readLogs && inputs.cloudLogResources) {
       const logs = new import_aws_ecs_standalone_task.LogReader(inputs.awsConfig, inputs.cloudLogResources);
       const log = await logs.parse(taskId);

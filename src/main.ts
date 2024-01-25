@@ -22,7 +22,7 @@ async function main(): Promise<void> {
 
     core.info("Task id: " + taskId);
 
-    await this.waitForTaskComplete(taskId, inputs.checkInterval, inputs.iterations);
+    await ecs.waitForTaskComplete(taskId, inputs.checkInterval, inputs.iterations);
 
     if (inputs.readLogs && inputs.cloudLogResources) {
       const logs = new LogReader(inputs.awsConfig, inputs.cloudLogResources);
