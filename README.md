@@ -44,8 +44,8 @@ jobs:
           ecs_task_def: "my-standalone-task-definition"
           security_groups: "sg-*****************,sg-*****************"
           subnets: "subnet-*****************"
-          #check_interval: 6000 #default 6000 to check for each 6 seconds
-          #iterations: 20 #default 20 to check for completion 20 times each interval
+          #check_interval: "6000" #default 6000 to check for each 6 seconds
+          #iterations: "20" #default 20 to check for completion 20 times each interval
           #optional
           #log_read_enable: false
           #log_group_name: "/ecs/my-standalone-ecs-task"

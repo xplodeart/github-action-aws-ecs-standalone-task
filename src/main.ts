@@ -38,6 +38,8 @@ async function main(): Promise<void> {
 
     core.setOutput("status", "SUCCESS");
   } catch (error) {
+    core.error(error);
+
     core.setFailed(error.message);
   }
 }
