@@ -45,7 +45,6 @@ async function main(): Promise<void> {
     core.setOutput("status", "SUCCESS");
   } catch (error) {
     core.error(error);
-    core.info("Error: \n" + error.message);
 
     core.setFailed(error.message);
   }
